@@ -2,7 +2,6 @@ local char_set = require("char_set")
 local materials = require("materials")
 require("util")
 local sizes = {"1x1", "1x2", "2x2"}
-local hidden = {false, true, false}
 
 local function make_item(size, material, order)
     local size_x = tonumber(size:sub(1, 1)) or 1
@@ -29,7 +28,6 @@ local function make_item(size, material, order)
         order = "f[banshu]-" .. order,
         stack_size = 100,
         place_result = "banshu-" .. material.name .. "-" .. size .. "-0",
-        hidden = hidden[index]
     }
     local recipe1 = {
         type = "recipe",
@@ -51,7 +49,8 @@ local function make_item(size, material, order)
                 amount = 1
             }
         },
-        allow_as_intermediate = false
+        allow_as_intermediate = false,
+        auto_recycle = false
     }
     local recipe2 = {
         type = "recipe",
@@ -85,7 +84,8 @@ local function make_item(size, material, order)
         },
         allow_decomposition = false,
         show_amount_in_title = false,
-        always_show_products = true
+        always_show_products = true,
+        auto_recycle = false
     }
 
     return item, recipe1, recipe2
@@ -196,7 +196,8 @@ local function create_entity(material)
                         {-0.5 * size_x, -0.5 * size_y},
                         {0.5 * size_x, 0.5 * size_y}
                     },
-                    corpse = "small-remnants"
+                    corpse = "small-remnants",
+                    hidden_in_factoriopedia = true
                 }
             end
             if cur_entity ~= nil then
