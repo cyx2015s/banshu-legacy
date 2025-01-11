@@ -50,7 +50,8 @@ local function make_item(size, material, order)
             }
         },
         allow_as_intermediate = false,
-        auto_recycle = false
+        auto_recycle = false,
+        allow_quality = false
     }
     local recipe2 = {
         type = "recipe",
@@ -85,7 +86,8 @@ local function make_item(size, material, order)
         allow_decomposition = false,
         show_amount_in_title = false,
         always_show_products = true,
-        auto_recycle = false
+        auto_recycle = false,
+        allow_quality = false
     }
 
     return item, recipe1, recipe2
