@@ -13,7 +13,7 @@ def package_files(output_filename="package.zip"):
                     file_path.startswith(ignored_file) for ignored_file in ignored_files
                 ):
                     print(f"Adding {file_path}")
-                    zipf.write(file_path)
+                    zipf.write(file_path, "banshu/" + file_path)
 
 
 if __name__ == "__main__":
