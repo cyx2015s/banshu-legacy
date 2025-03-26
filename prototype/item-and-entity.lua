@@ -191,8 +191,8 @@ local function create_entity(material)
                     placeable_by = {item = item, count = 1},
                     max_health = 25 * size_x * size_y,
                     collision_box = {
-                        {-0.45 * size_x, -0.45 * size_y},
-                        {0.45 * size_x, 0.45 * size_y}
+                        {-0.4 * size_x, -0.4 * size_y},
+                        {0.4 * size_x, 0.4 * size_y}
                     },
                     selection_box = {
                         {-0.5 * size_x, -0.5 * size_y},

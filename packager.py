@@ -17,4 +17,4 @@ def package_files(output_filename="package.zip"):
 
 
 if __name__ == "__main__":
-    package_files("banshu_0.0.2.zip")
+    package_files("banshu_0.0.3.zip")
