@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: Jan. 11th 2025
+  Minor Features:
+    - Allow players to walk through text plates. Can be changed in startup settings.
+  Bug Fixes:
+    - Fixed a crash when placing ghost text plate.
+---------------------------------------------------------------------------------------------------
 Version: 0.0.3
 Date: Jan. 11th 2025
   Minor Features:

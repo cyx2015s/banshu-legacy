@@ -198,7 +198,6 @@ local function replace_entity_ghost(entity, new_batch_id)
     local surface = entity.surface
     local position = entity.position
     local force = entity.force
-    local time_to_live = entity.time_to_live
     entity.destroy()
     return surface.create_entity {
         name = "entity-ghost",
@@ -206,7 +205,6 @@ local function replace_entity_ghost(entity, new_batch_id)
             tostring(new_batch_id),
         position = position,
         force = force,
-        time_to_live = time_to_live
     }
 end
 

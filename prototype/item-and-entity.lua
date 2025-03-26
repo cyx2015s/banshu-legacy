@@ -3,6 +3,26 @@ local materials = require("materials")
 require("util")
 local sizes = {"1x1", "1x2", "2x2"}
 
+local collision_layers = function(allow_player_walk_through)
+    if allow_player_walk_through then
+        return {
+            item = true,
+            meltable = true,
+            object = true,
+            water_tile = true,
+            floor = true,
+        }
+    else
+        return {
+            item = true,
+            meltable = true,
+            object = true,
+            player = true,
+            water_tile = true,
+            floor = true,
+        }
+    end
+end
 local function make_item(size, material, order)
     local size_x = tonumber(size:sub(1, 1)) or 1
     local size_y = tonumber(size:sub(3, 3)) or 1
@@ -27,7 +47,7 @@ local function make_item(size, material, order)
         subgroup = "banshu",
         order = "f[banshu]-" .. order,
         stack_size = 100,
-        place_result = "banshu-" .. material.name .. "-" .. size .. "-0",
+        place_result = "banshu-" .. material.name .. "-" .. size .. "-0"
     }
     local recipe1 = {
         type = "recipe",
@@ -176,15 +196,7 @@ local function create_entity(material)
                     },
                     render_layer = "floor",
                     collision_mask = {
-                        layers = {
-                            item = true,
-                            meltable = true,
-                            object = true,
-                            player = true,
-                            water_tile = true,
-                            is_object = true,
-                            is_lower_object = true
-                        }
+                        layers = collision_layers(settings.startup["banshu-disable-collision"].value or collision_layers(settings.startup["banshu-disable-collision"].default_value))
                     },
                     resistances = {{type = "fire", percent = 100}},
                     pictures = {},
